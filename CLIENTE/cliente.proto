@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+service MyUberService {
+  rpc RegisterUser (UserRequest) returns (RegisterResponse);
+  rpc GetServiceTypes (Empty) returns (ServiceList);
+  rpc RequestTaxi (TaxiRequest) returns (TaxiResponse);
+}
+
+message UserRequest {
+  string name = 1;
+  string phone = 2;
+}
+
+message RegisterResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message Empty {}
+
+message Service {
+  string type = 1;
+  int32 cost = 2;
+  string description = 3;
+}
+
+message ServiceList {
+  repeated Service services = 1;
+}
+
+message TaxiRequest {
+  int32 x = 1;
+  int32 y = 2;
+}
+
+message TaxiResponse {
+  string plate = 1;
+}
