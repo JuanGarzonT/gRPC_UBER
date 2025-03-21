@@ -3,7 +3,7 @@ import cliente_pb2
 import cliente_pb2_grpc
 
 def run():
-    channel = grpc.insecure_channel("localhost:50051")
+    channel = grpc.insecure_channel("localhost:50051") # donde dice "localhost" debe ir la ip del servidor
     stub = cliente_pb2_grpc.MyUberServiceStub(channel)
 
     #Ingresar datos del usuario desde la consola
