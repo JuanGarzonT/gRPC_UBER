@@ -7,7 +7,7 @@ Permite a los usuarios:
 - Consultar los tipos de servicio** disponibles.
 - Solicitar un taxi basado en coordenadas dentro de una matriz 10x10.
 
-# Requisitos
+# 📝 Requisitos
 
 Asegúrate de tener instalado:
 - Python 3.8+
@@ -17,30 +17,41 @@ Para instalarlos toca ir a la consola de comando y ejecutar:
 
 - pip install grpcio grpcio-tools
 
-# Estructura del Proyecto
+# 📂 Estructura del Proyecto
 
 GRPC_UBER/
-│── CLIENTE/       
-    │── cliente.py       # Cliente gRPC
-    │── cliente_pb2.py       # Generado por protoc
-    │── cliente_pb2_grpc.py  # Generado por protoc
-    │── cliente.proto          # Definición del servicio gRPC
-│── SERVIDOR/
-    │── servidor_pb2.py       # Generado por protoc
-    │── servidor_pb2_grpc.py  # Generado por protoc      
-    │── server.py             # Servidor gRPC
-    │── servidor.proto          # Definición del servicio gRPC
-│── README.md         # Documentación
+
+├── CLIENTE/
+
+│ ├── cliente.py # Cliente gRPC 
+
+│ ├── cliente_pb2.py # Generado por protoc 
+
+│ ├── cliente_pb2_grpc.py # Generado por protoc 
+
+│ ├── cliente.proto # Definición del servicio gRPC 
+
+├── SERVIDOR/ 
+
+│ ├── servidor_pb2.py # Generado por protoc 
+
+│ ├── servidor_pb2_grpc.py # Generado por protoc
+
+│ ├── server.py # Servidor gRPC 
+
+│ ├── servidor.proto # Definición del servicio gRPC 
+
+├── README.md # Documentación
 
 
-# Cómo Generar los Archivos de gRPC
+# 🚀 Cómo Generar los Archivos de gRPC
 Después de definir `servidor.proto` y `cliente.proto`, genera los archivos necesarios en la respectiva
 consola de cada uno con:
 
-# Para cliente.proto
+## Para cliente.proto
 - python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. cliente.proto
 
-# Para servidor.proto
+## Para servidor.proto
 - python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. servidor.proto
 
 
@@ -50,7 +61,7 @@ Esto creará:
 - `servidor_pb2.py`
 - `servidor_pb2_grpc.py`
 
-# Cómo Ejecutar el Proyecto
+# 🛠 Cómo Ejecutar el Proyecto
 
 ## 1 Iniciar el Servidor
 Ejecuta el servidor en una terminal:
@@ -70,7 +81,7 @@ El cliente pedirá:
 
 El servidor mostrará los registros de usuario en su consola.
 
-# Prueba en Red con Dos Computadoras
+# 🤝 Prueba en Red con Dos Computadoras
 Si quieres probarlo en dos máquinas diferentes**:
 1. Obtén la IP del servidor (`ipconfig` en Windows o `ifconfig` en Linux/macOS).
 2. Modifica el cliente para conectarse a esa IP en `client.py`:
